@@ -1,0 +1,6 @@
+Em caso de incêndio:
+
+git commit
+git push
+
+saia,se der tempo!
