@@ -5,3 +5,5 @@
 ## Tiago, o programador
 
 ## Envio de push, Alan Carlos
+
+## Envio pelo ubuntu
