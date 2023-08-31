@@ -20,7 +20,7 @@ int main(){
         }
     }
 
-    mediaNotas /= totalAlunos;
+    mediaNotas = somaNotas / totalAlunos;
 
     cout << "A media da turma foi " << mediaNotas << endl;
 
