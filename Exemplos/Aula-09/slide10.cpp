@@ -9,6 +9,16 @@ int main(){
     cin.getline(data,11);
 
     cout << data << endl;
+    
+    /*
+        for(int i=0; data[i] != '\0'; i++){
+        if(data[i] != '/'){
+            cout << data[i];
+        }else{
+            cout << endl;
+        }
+    }
+    */
 
     cout << data[0] << data[1] << endl;
     cout << data[3] << data[4] << endl;
