@@ -1,2 +1,2 @@
-Isso é um exemplo de escrita em arquivo.
+Escrevendo no arquivo.
 50
