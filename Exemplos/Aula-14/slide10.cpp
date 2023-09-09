@@ -55,18 +55,29 @@ void alteraData( struct Data *data, int dia, int mes, int ano){
 
 }
 
-string dataParaString(
-                struct Data data,
-                string format = "pt-br"){
+string to_string_zeros(int numero){
+    string numeroString = to_string(numero);
+
+    if(numero < 10){
+        numeroString = "0" + numeroString;
+    }
+
+    return numeroString;
+}
+
+string dataParaString(struct Data data,string format = "pt-br"){
     
-    if(format == "en-us")
-        return  to_string(data.mes)+"/"+
-                to_string(data.dia)+"/"+
-                to_string(data.ano);
+    string dia = to_string_zeros(data.dia);
+    string mes = to_string_zeros(data.mes);
+    string ano = to_string(data.ano);
+    
+    if(format == "iso-8601")
+        return  ano+"/"+mes+"/"+dia;
     else
-        return  to_string(data.dia)+"/"+
-                to_string(data.mes)+"/"+
-                to_string(data.ano);
+    if(format == "en-us")
+        return  mes+"/"+dia+"/"+ano;
+    else
+        return dia+"/"+mes+"/"+ano;
 }
 
 
