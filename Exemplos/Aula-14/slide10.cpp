@@ -36,21 +36,21 @@ bool dataValida(int dia, int mes, int ano) {
     return true;
 }
 
-bool dataValida(struct Data data){
+bool dataValida(Data &data){
     return dataValida(data.dia,data.mes,data.ano);
 }
 
-void alteraData( struct Data *data, int dia, int mes, int ano){
+void alteraData( struct Data &data, int dia, int mes, int ano){
     if (dataValida(dia,mes,ano)){
-         data->dia = dia;
-         data->mes = mes;
-         data->ano = ano;
+         data.dia = dia;
+         data.mes = mes;
+         data.ano = ano;
     }
     else{
         cout << "Data inválida, atribuindo 1/1/1900" << endl;
-        data->dia = 1;
-        data->mes = 1;
-        data->ano = 1900;
+        data.dia = 1;
+        data.mes = 1;
+        data.ano = 1900;
     }
 
 }
@@ -65,7 +65,7 @@ string to_string_zeros(int numero){
     return numeroString;
 }
 
-string dataParaString(struct Data data,string format = "pt-br"){
+string dataParaString(Data &data,string format = "pt-br"){
     
     string dia = to_string_zeros(data.dia);
     string mes = to_string_zeros(data.mes);
@@ -84,11 +84,11 @@ string dataParaString(struct Data data,string format = "pt-br"){
 int main(){
     struct Data data;
     
-    alteraData(&data,15,8,2023);
+    alteraData(data,15,8,2023);
     cout << dataParaString(data,"en-us") << endl;
     cout << dataParaString(data) << endl;
 
-    alteraData(&data,30,2,2024);
+    alteraData(data,30,2,2024);
     cout << dataParaString(data,"en-us") << endl;
     cout << dataParaString(data) << endl;
     
