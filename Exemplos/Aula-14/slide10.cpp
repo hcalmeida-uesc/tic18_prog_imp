@@ -55,6 +55,9 @@ void alteraData( struct Data &data, int dia, int mes, int ano){
 
 }
 
+void alteraData( struct Data &data, string format = "pt-br"){
+}
+
 string to_string_zeros(int numero){
     string numeroString = to_string(numero);
 
@@ -63,6 +66,10 @@ string to_string_zeros(int numero){
     }
 
     return numeroString;
+}
+
+string to_string_zeros(int numero, int quantidade){
+    return "oi";
 }
 
 string dataParaString(Data &data,string format = "pt-br"){
