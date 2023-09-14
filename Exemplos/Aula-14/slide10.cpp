@@ -55,7 +55,7 @@ void alteraData( struct Data &data, int dia, int mes, int ano){
 
 }
 
-void alteraData( struct Data &data, string format = "pt-br"){
+void alteraData( string data, string format = "pt-br"){
 }
 
 string to_string_zeros(int numero){
