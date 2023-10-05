@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include "aluguel.h"
 
 using namespace std;
 

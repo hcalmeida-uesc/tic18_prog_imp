@@ -93,27 +93,27 @@ class Funcionario : public Usuario{
             return novoFuncionario;
         
         }
-/*
-        Aluguel AlugarVeiculo(
-                Cliente *_cliente,
-                Funcionario *_funcionario,
-                Veiculo *_veiculo,
-                struct tm *_dataInicio,
-                struct tm *_dataTermino){
 
-            Aluguel novoAluguel(_cliente,
-                _funcionario,
-                _veiculo,
-                _dataInicio,
-                _dataTermino
-                );
+        // Aluguel AlugarVeiculo(
+        //         Cliente *_cliente,
+        //         Funcionario *_funcionario,
+        //         Veiculo *_veiculo,
+        //         struct tm *_dataInicio,
+        //         struct tm *_dataTermino){
 
-            return novoAluguel;
+        //     Aluguel novoAluguel(_cliente,
+        //         _funcionario,
+        //         _veiculo,
+        //         _dataInicio,
+        //         _dataTermino
+        //         );
+
+        //     return novoAluguel;
             
             
 
-        }
-        */
+        // }
+        
         Veiculo cadastrarVeiculo(   string _id,
                                     string _marca,
                                     string _modelo,

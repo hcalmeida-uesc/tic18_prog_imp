@@ -1,6 +1,9 @@
 #include <iostream>
 #include <ctime>
 #include <cstring>
+#include "veiculo.h"
+#include "utilidades.h"
+#include "aluguel.h"
 #include "bancoDeDados.h"
 
 using namespace std;
