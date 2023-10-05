@@ -61,18 +61,84 @@ class BancoDeDados{
 
             vector<Cliente> clientes;
 
-            cout << dados.size() << endl;
-
             for(int i=0; i<dados.size()-1;i+=5){
-                Cliente cli;
-                cli.cpf = dados.at(i);
-                cli.nome = dados.at(i+1);
-                cli.endereco = dados.at(i+2);
-                cli.telefone = dados.at(i+3);
-                cli.habilitacao = dados.at(i+4);
+                Cliente cli(
+                    dados.at(i),
+                    dados.at(i+1),
+                    dados.at(i+2),
+                    dados.at(i+3),
+                    dados.at(i+4)
+                );
+                
                 clientes.push_back(cli);
             }
 
             return clientes;
+        }
+
+        static void funcionariosParaArquivo(string arquivoNome,vector<Funcionario> funcionarios){
+            vector<string> dados;
+
+            for(Funcionario func : funcionarios){
+                dados.push_back(func.cpf);
+                dados.push_back(func.nome);
+                dados.push_back(func.endereco);
+                dados.push_back(func.telefone);
+                dados.push_back(func.matricula);
+            }
+
+            salvarDados(arquivoNome,dados);
+        }
+
+        static vector<Funcionario> arquivoParaFuncionarios(string arquivoNome){
+            vector<string> dados = recuperarDados(arquivoNome);
+
+            vector<Funcionario> funcionarios;
+
+            for(int i=0; i<dados.size()-1;i+=5){
+                Funcionario func(
+                            dados.at(i),
+                            dados.at(i+1),
+                            dados.at(i+2),
+                            dados.at(i+3),
+                            dados.at(i+4)
+                        );
+                funcionarios.push_back(func);
+            }
+
+            return funcionarios;
+        }
+
+        static void veiculosParaArquivo(string arquivoNome,vector<Veiculo> veiculos){
+            vector<string> dados;
+
+            for(Veiculo veiculo : veiculos){
+                dados.push_back(veiculo.identificador);
+                dados.push_back(veiculo.marca);
+                dados.push_back(veiculo.modelo);
+                dados.push_back(to_string(veiculo.anoFabricacao));
+                dados.push_back(to_string(veiculo.precoPorDia));
+            }
+
+            salvarDados(arquivoNome,dados);
+        }
+
+        static vector<Veiculo> arquivoParaVeiculos(string arquivoNome){
+            vector<string> dados = recuperarDados(arquivoNome);
+
+            vector<Veiculo> veiculos;
+
+            for(int i=0; i<dados.size()-1;i+=5){
+                Veiculo veiculo(
+                            dados.at(i),
+                            dados.at(i+1),
+                            dados.at(i+2),
+                            stoi(dados.at(i+3)),
+                            stof(dados.at(i+4))
+                        );
+                veiculos.push_back(veiculo);
+            }
+
+            return veiculos;
         }
 };

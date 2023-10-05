@@ -27,7 +27,7 @@ class Cliente : public Usuario{
     public:
         string habilitacao;
 
-        Cliente():Usuario("","","",""){}
+        //Cliente():Usuario("","","",""){}
         
         Cliente(string _cpf,
                 string _nome,
@@ -68,7 +68,7 @@ class Funcionario : public Usuario{
         
         }
 
-        Cliente cadastrarCliente( ){
+        void cadastrarCliente( ){
 
             //todo: solicitar dados via terminal
 /*
@@ -76,6 +76,33 @@ class Funcionario : public Usuario{
 
             return novoCliente;
             */
+            //Cliente cliente;
+
+            
+        
+        }
+
+        Funcionario cadastrarFuncionario(   string _cpf,
+                                            string _nome,
+                                            string _endereco,
+                                            string _telefone,
+                                            string _matricula){
+            
+            Funcionario novoFuncionario(_cpf,_nome,_endereco,_telefone,_matricula);
+
+            return novoFuncionario;
+        
+        }
+        
+        Veiculo cadastrarVeiculo(   string _id,
+                                    string _marca,
+                                    string _modelo,
+                                    int _anoFabricacao,
+                                    float _precoPorDia){
+            
+            Veiculo novoVeiculo(_id,_marca,_modelo,_anoFabricacao,_precoPorDia);
+
+            return novoVeiculo;
         
         }
 };

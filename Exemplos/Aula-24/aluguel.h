@@ -8,7 +8,7 @@ class Aluguel{
     public:
         string identificador;
         Veiculo *veiculo;
-        Cliente *cliente;
+        Veiculo *cliente;
         Funcionario *funcionario;
         tm dataInicio;
         tm dataTermino;
