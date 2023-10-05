@@ -67,20 +67,20 @@ class Funcionario : public Usuario{
             return novoCliente;
         
         }
-
+/*
         void cadastrarCliente( ){
 
             //todo: solicitar dados via terminal
-/*
+
             Cliente novoCliente(_cpf,_nome,_endereco,_telefone,_habilitacao);
 
             return novoCliente;
-            */
+            
             //Cliente cliente;
 
             
         
-        }
+        }*/
 
         Funcionario cadastrarFuncionario(   string _cpf,
                                             string _nome,
@@ -93,7 +93,27 @@ class Funcionario : public Usuario{
             return novoFuncionario;
         
         }
-        
+/*
+        Aluguel AlugarVeiculo(
+                Cliente *_cliente,
+                Funcionario *_funcionario,
+                Veiculo *_veiculo,
+                struct tm *_dataInicio,
+                struct tm *_dataTermino){
+
+            Aluguel novoAluguel(_cliente,
+                _funcionario,
+                _veiculo,
+                _dataInicio,
+                _dataTermino
+                );
+
+            return novoAluguel;
+            
+            
+
+        }
+        */
         Veiculo cadastrarVeiculo(   string _id,
                                     string _marca,
                                     string _modelo,

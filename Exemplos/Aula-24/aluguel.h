@@ -1,8 +1,10 @@
 #include <iostream>
 #include "veiculo.h"
 #include "usuario.h"
+#include "utilidades.h"
 
 using namespace std;
+
 
 class Aluguel{
     public:
@@ -29,6 +31,7 @@ class Aluguel{
             dataInicio = _dataInicio;
             dataTermino = _dataTermino;
             dataDevolucao = nullptr;
+            identificador = to_string(dataInicio->tm_year+1900)+"-"+cliente->cpf+"-"+veiculo->identificador;
         }
 
         float CalcularValorFinal(){
@@ -36,11 +39,9 @@ class Aluguel{
 
             //todo1: verificar se veiculo foi devolvido
             if(dataDevolucao != nullptr){
-
-                //todo2: quantidadeDias = dataDevolucao - dataInicio;
-
+                quantidadeDias = Utilidades::diferencaEmDiasEntreDatas(dataInicio,dataDevolucao);
+                return veiculo->precoPorDia * quantidadeDias;
             }
-
-            return veiculo->precoPorDia * quantidadeDias;
+            return 0;
         }
 };

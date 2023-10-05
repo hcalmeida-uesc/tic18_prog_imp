@@ -1,29 +1,24 @@
 #include <iostream>
 #include <ctime>
+#include <cstring>
 #include "bancoDeDados.h"
 
 using namespace std;
 
-
 int main(){
     
     time_t rawtime;
-    struct tm * timeinfo;
+    struct tm * timeinfo, *time2;
 
     time (&rawtime);
     timeinfo = localtime (&rawtime);
-//    printf ("Current local time and date: %s", asctime(timeinfo));
+    
+    memcpy(time2, timeinfo, sizeof(struct tm));
 
-    cout << timeinfo->tm_mday << "/";
-    cout << timeinfo->tm_mon+1 << "/";
-    cout << timeinfo->tm_year+1900 << " - ";
-    cout << timeinfo->tm_hour << ":";
-    cout << timeinfo->tm_min << endl;
+    time2->tm_mday = 8;
 
 
     
-
-    /*
     Funcionario func1("12234455","Ulian","Ilheus","454564","123456");
 
     vector<Funcionario> bancoFuncionarios;
@@ -48,9 +43,7 @@ int main(){
     getline(cin >> ws, buff);
     strBuff.push_back(buff);
     getline(cin >> ws, buff);
-    strBuff.push_back(buff);
-    getline(cin >> ws, buff);
-    strBuff.push_back(buff);
+    strBuff.push_back(buff);time2
     getline(cin >> ws, buff);
     strBuff.push_back(buff);
     getline(cin >> ws, buff);
@@ -61,7 +54,7 @@ int main(){
                                                     strBuff.at(2),
                                                     strBuff.at(3),
                                                     strBuff.at(4)));
-
+*/
     BancoDeDados::clientesParaArquivo("clientes.txt",bancoClientes);
 
     vector<Veiculo> bancoVeiculos;
@@ -75,6 +68,44 @@ int main(){
 
     bancoVeiculos = BancoDeDados::arquivoParaVeiculos("veiculos.txt");
 
-*/
-    return 0;
+    // Cliente clienteTeste = bancoClientes.at(0);
+    // Funcionario funcionarioTeste = bancoFuncionarios.at(0);
+    // Veiculo veiculoTeste = bancoVeiculos.at(0);
+
+    Aluguel novoAluguel(
+                &bancoClientes.at(0),
+                &bancoFuncionarios.at(0),
+                &bancoVeiculos.at(0),
+                timeinfo,
+                time2);
+
+    cout << novoAluguel.identificador << endl;
+    cout << "Data de Inicio:";
+    Utilidades::imprimirData(novoAluguel.dataInicio);
+    cout << "Data de Termino:";
+    Utilidades::imprimirData(novoAluguel.dataTermino);
+    cout << "Data de Devolucao:";
+    Utilidades::imprimirData(novoAluguel.dataDevolucao);
+    cout << "Valor Final:";
+    cout << novoAluguel.CalcularValorFinal() << endl;
+
+    struct tm *devolucaoTeste;
+
+    memcpy(devolucaoTeste, time2, sizeof(struct tm));
+
+    devolucaoTeste->tm_mday += 5;
+
+    novoAluguel.dataDevolucao = devolucaoTeste;
+
+    cout << "Data de Devolucao:";
+    Utilidades::imprimirData(novoAluguel.dataDevolucao);
+    cout << "Quantidade de dias:";
+    cout << Utilidades::diferencaEmDiasEntreDatas(novoAluguel.dataInicio,novoAluguel.dataDevolucao) << endl;
+    cout << "Preço do veiculo por dia:";
+    cout << novoAluguel.veiculo->precoPorDia << endl;
+    cout << "Valor Final:";
+    cout << novoAluguel.CalcularValorFinal() << endl;
+
+    
+     return 0;
 }
