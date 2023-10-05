@@ -1,9 +1,29 @@
 #include <iostream>
+#include <ctime>
 #include "bancoDeDados.h"
 
 using namespace std;
 
+
 int main(){
+    
+    time_t rawtime;
+    struct tm * timeinfo;
+
+    time (&rawtime);
+    timeinfo = localtime (&rawtime);
+//    printf ("Current local time and date: %s", asctime(timeinfo));
+
+    cout << timeinfo->tm_mday << "/";
+    cout << timeinfo->tm_mon+1 << "/";
+    cout << timeinfo->tm_year+1900 << " - ";
+    cout << timeinfo->tm_hour << ":";
+    cout << timeinfo->tm_min << endl;
+
+
+    
+
+    /*
     Funcionario func1("12234455","Ulian","Ilheus","454564","123456");
 
     vector<Funcionario> bancoFuncionarios;
@@ -21,7 +41,7 @@ int main(){
     bancoClientes.push_back(func1.cadastrarCliente("00000000022","Ulian", "Salvador","646746464","111111"));
     bancoClientes.push_back(func1.cadastrarCliente("00000000023","Jéssica", "Ilhéus","646746464","121212"));
     bancoClientes.push_back(func1.cadastrarCliente("00000000024","Paulo", "Arábia","646746464","131313"));
-
+/*
     vector<string> strBuff;
     string buff;
 
@@ -55,6 +75,6 @@ int main(){
 
     bancoVeiculos = BancoDeDados::arquivoParaVeiculos("veiculos.txt");
 
-
+*/
     return 0;
 }
