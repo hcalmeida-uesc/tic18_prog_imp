@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Aluguel;
+class Aluguel; //forward including
 
 class Funcionario : public Usuario{
     public: 
