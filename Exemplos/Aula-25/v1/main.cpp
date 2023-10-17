@@ -148,7 +148,7 @@ class Funcionario : public Usuario{
         
         }
 
-        Aluguel AlugarVeiculo(
+        Aluguel AlugarVeiculo( //protótipo do método
             Cliente *_cliente,
             Funcionario *_funcionario,
             Veiculo *_veiculo,
@@ -197,7 +197,7 @@ class Aluguel{
         }
 };
 
-
+//definição do método
 Aluguel Funcionario::AlugarVeiculo(Cliente *_cliente, Funcionario *_funcionario, Veiculo *_veiculo, struct tm *_dataInicio, struct tm *_dataTermino){
 
     Aluguel novoAluguel(_cliente, _funcionario, _veiculo, _dataInicio, _dataTermino);
